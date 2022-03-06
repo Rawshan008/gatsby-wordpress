@@ -1,23 +1,68 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Layout from "../components/common/layout"
 
 const BlogPosts = props => {
-  console.log(props)
   const Posts = props.data.allWpPost.edges
 
   return (
-    <div className="simple-blogs">
-      <h1>Hello</h1>
-      {Posts.map(post => {
-        return (
-          <Link to={`/blog/${post.node.slug}`} key={post.node.id}>
-            <h1>{post.node.title}</h1>
-          </Link>
-        )
-      })}
-      <Link to={props.pageContext.previousPagePath}>Previous</Link>
-      <Link to={props.pageContext.nextPagePath}>Next</Link>
-    </div>
+    <Layout>
+      <div className="py-11 bg-gradient-to-t from-purple-500 to-pink-500 flex justify-center items-center">
+        <div className="container mx-auto">
+          <div className="w-6/12 ml-auto mr-auto text-center">
+            <h1 className="text-center text-[30px] font-bold text-white mb-2 uppercase">
+              Our Blog
+            </h1>
+            <p className="text-white mb-5">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem,
+              aperiam error a commodi voluptate harum.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container py-10 mx-auto">
+        <div className="flex flex-wrap -m-4">
+          {Posts.map(post => {
+            const { id, title, slug, featuredImage } = post.node
+
+            const featureImage = getImage(featuredImage.node.localFile)
+            return (
+              <div key={id} className="w-full md:w-4/12">
+                <div className="p-6">
+                  <GatsbyImage image={featureImage} alt={title} />
+                  <Link to={`/blog/${slug}`}>
+                    <h3 className="text-xl font-bold mb-3">{title}</h3>
+                  </Link>
+
+                  <a
+                    className="py-2 px-5 text-sm bg-black text-white inline-block rounded hover:bg-bg-header hover:text-white uppercase"
+                    href={`/blog/${slug}`}
+                  >
+                    Read More
+                  </a>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+      <div className="flex justify-center gap-5 py-10">
+        <Link
+          className="py-2 px-5 text-sm bg-black text-white inline-block rounded hover:bg-bg-header hover:text-white uppercase"
+          to={props.pageContext.previousPagePath}
+        >
+          Previous
+        </Link>
+        <Link
+          className="py-2 px-5 text-sm bg-black text-white inline-block rounded hover:bg-bg-header hover:text-white uppercase"
+          to={props.pageContext.nextPagePath}
+        >
+          Next
+        </Link>
+      </div>
+    </Layout>
   )
 }
 
@@ -31,6 +76,15 @@ export const query = graphql`
           slug
           id
           title
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(placeholder: BLURRED)
+                }
+              }
+            }
+          }
         }
       }
     }

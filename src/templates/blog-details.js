@@ -5,7 +5,7 @@ const ProjectDetails = props => {
   console.log(props)
   const { title, content } = props.data.wpPost
   return (
-    <div className="container mx-auto h-screen flex flex-col items-center justify-center">
+    <div className="container mx-auto">
       <h1 className="font-bold text-2xl mb-5">{title}</h1>
       <div dangerouslySetInnerHTML={{ __html: content }}></div>
     </div>
