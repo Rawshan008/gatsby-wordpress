@@ -6,7 +6,7 @@ const Navbar = () => {
     query Menus {
       allWpMenuItem(
         filter: { locations: { eq: PRIMARY } }
-        sort: { fields: path, order: DESC }
+        sort: { order: ASC, fields: id }
       ) {
         nodes {
           id
@@ -18,7 +18,7 @@ const Navbar = () => {
   `)
   const menus = data.allWpMenuItem.nodes
   return (
-    <div className="bg-bg-header">
+    <div className="bg-bg-header py-2">
       <div className="container mx-auto flex items-center justify-between">
         <div className="logo text-white font-bold text-2xl uppercase">logo</div>
         <div className="menu">
