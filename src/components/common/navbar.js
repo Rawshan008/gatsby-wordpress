@@ -20,7 +20,9 @@ const Navbar = () => {
   return (
     <div className="bg-bg-header py-2">
       <div className="container mx-auto flex items-center justify-between">
-        <div className="logo text-white font-bold text-2xl uppercase">logo</div>
+        <a href="/" className="logo text-white font-bold text-2xl uppercase">
+          logo
+        </a>
         <div className="menu">
           <ul className="flex flex-row">
             {menus.map(menu => {

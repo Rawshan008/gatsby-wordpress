@@ -8,13 +8,10 @@ import LatestPosts from "../components/latest-posts"
 const index = ({ data }) => {
   const { title, content, featuredImage } = data.wpPage
 
-  console.log(data.wpPage)
-
-  // const featureImage = getImage(featuredImage.node.localFile)
   return (
     <Layout>
       <HomeHero />
-      <LatestPosts />
+      <LatestPosts lposts={data.wpPage.latestPosts} />
       {/* <h1>{title}</h1>
       <GatsbyImage image={featureImage} alt={featuredImage.node.altText} />
       <div dangerouslySetInnerHTML={{ __html: content }}></div> */}
@@ -37,6 +34,24 @@ export const query = graphql`
             }
           }
           altText
+        }
+      }
+      latestPosts {
+        selectPosts {
+          ... on WpPost {
+            id
+            title
+            slug
+            featuredImage {
+              node {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

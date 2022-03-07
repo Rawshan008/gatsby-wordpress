@@ -1,6 +1,6 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/common/layout"
 
 const BlogPosts = props => {
@@ -27,11 +27,19 @@ const BlogPosts = props => {
           {Posts.map(post => {
             const { id, title, slug, featuredImage } = post.node
 
-            const featureImage = getImage(featuredImage.node.localFile)
+            const featureImage = getImage(featuredImage?.node?.localFile)
             return (
               <div key={id} className="w-full md:w-4/12">
                 <div className="p-6">
-                  <GatsbyImage image={featureImage} alt={title} />
+                  {featureImage ? (
+                    <GatsbyImage
+                      class="mb-3"
+                      image={featureImage}
+                      alt={title}
+                    />
+                  ) : (
+                    <StaticImage class="mb-3" src="../../static/images/placeholder.png" />
+                  )}
                   <Link to={`/blog/${slug}`}>
                     <h3 className="text-xl font-bold mb-3">{title}</h3>
                   </Link>
