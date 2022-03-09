@@ -1,5 +1,6 @@
 import { graphql } from "gatsby"
 import React from "react"
+import ContactForm from "../components/common/gravity-form"
 // import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/common/layout"
 import HomeHero from "../components/hero/home-hero"
@@ -15,6 +16,8 @@ const index = ({ data }) => {
       {/* <h1>{title}</h1>
       <GatsbyImage image={featureImage} alt={featuredImage.node.altText} />
       <div dangerouslySetInnerHTML={{ __html: content }}></div> */}
+
+      {/* <ContactForm /> */}
     </Layout>
   )
 }

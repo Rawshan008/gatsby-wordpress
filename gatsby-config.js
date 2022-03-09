@@ -36,6 +36,12 @@ module.exports = {
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
+    {
+      resolve: "gatsby-plugin-gravity-forms",
+      options: {
+        url: process.env.WPGRAPHQL_URL || `http://gatsby.local/graphql`,
+      },
+    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",

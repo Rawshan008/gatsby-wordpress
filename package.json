@@ -17,6 +17,7 @@
   "dependencies": {
     "gatsby": "^4.9.0",
     "gatsby-awesome-pagination": "^0.3.8",
+    "gatsby-plugin-gravity-forms": "^2.0.3",
     "gatsby-plugin-image": "^2.9.0",
     "gatsby-plugin-sharp": "^4.9.0",
     "gatsby-source-filesystem": "^4.9.0",
