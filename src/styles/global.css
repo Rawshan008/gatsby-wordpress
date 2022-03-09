@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ginput_container input,
+.ginput_container textarea {
+  border: none;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+.ginput_container textarea {
+  height: 100px;
+}
+.gform_wrapper label {
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.gform_wrapper ul li {
+  margin-bottom: 10px;
+}
+
+.gform_footer button {
+  background: #fff;
+  color: #000;
+  padding: 8px 30px;
+  transition: 0.3s;
+}
+
+.gform_footer button:hover {
+  background: #000;
+  color: #fff;
+}
