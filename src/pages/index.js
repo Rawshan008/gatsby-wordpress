@@ -5,12 +5,14 @@ import ContactForm from "../components/common/gravity-form"
 import Layout from "../components/common/layout"
 import HomeHero from "../components/hero/home-hero"
 import LatestPosts from "../components/latest-posts"
+import Head from "../components/common/head"
 
 const index = ({ data }) => {
   const { title, content, featuredImage } = data.wpPage
 
   return (
     <Layout>
+      <Head title="Home" />
       <HomeHero />
       <LatestPosts lposts={data.wpPage.latestPosts} />
       {/* <h1>{title}</h1>

@@ -2,6 +2,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import React, { useState, useEffect } from "react"
 import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/common/layout"
+import Head from "../components/common/head"
 
 const BlogPosts = () => {
   const Posts = useStaticQuery(graphql`
@@ -60,6 +61,7 @@ const BlogPosts = () => {
 
   return (
     <Layout>
+      <Head title="Blog" />
       <div className="py-11 bg-gradient-to-t from-purple-500 to-pink-500 flex justify-center items-center">
         <div className="container mx-auto">
           <div className="w-6/12 ml-auto mr-auto text-center">

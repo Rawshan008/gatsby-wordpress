@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/common/layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Head from "../components/common/head"
 
 const ProjectDetails = props => {
   console.log(props)
@@ -9,6 +10,7 @@ const ProjectDetails = props => {
   const featureImage = getImage(featuredImage?.node?.localFile)
   return (
     <Layout>
+      <Head title={title} />
       <div className="container mx-auto py-10">
         <div className="w-full w-9/12 ml-auto mr-auto">
           {featureImage && (
