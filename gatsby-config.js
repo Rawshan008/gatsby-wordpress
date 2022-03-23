@@ -17,6 +17,9 @@ module.exports = {
         develop: {
           hardCacheData: false,
         },
+        type: {
+          BlockEditorContentNode: { exclude: true },
+        },
         includedRoutes: [
           "/*/*/categories",
           "/*/*/posts",

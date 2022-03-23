@@ -6,13 +6,14 @@ import Layout from "../components/common/layout"
 import HomeHero from "../components/hero/home-hero"
 import LatestPosts from "../components/latest-posts"
 import Head from "../components/common/head"
+import Seo from "gatsby-plugin-wpgraphql-seo"
 
 const index = ({ data }) => {
   const { title, content, featuredImage } = data.wpPage
 
   return (
     <Layout>
-      <Head title="Home" />
+      <Seo post={data.wpPage} />
       <HomeHero />
       <LatestPosts lposts={data.wpPage.latestPosts} />
       {/* <h1>{title}</h1>
@@ -58,6 +59,23 @@ export const query = graphql`
             }
           }
         }
+      }
+      seo {
+        title
+        twitterTitle
+        metaDesc
+        twitterImage {
+          sourceUrl
+          altText
+          srcSet
+        }
+        breadcrumbs {
+          url
+          text
+        }
+        focuskw
+        canonical
+        cornerstone
       }
     }
   }
