@@ -61,21 +61,7 @@ export const query = graphql`
         }
       }
       seo {
-        title
-        twitterTitle
-        metaDesc
-        twitterImage {
-          sourceUrl
-          altText
-          srcSet
-        }
-        breadcrumbs {
-          url
-          text
-        }
-        focuskw
-        canonical
-        cornerstone
+        ...SiteMeta
       }
     }
   }

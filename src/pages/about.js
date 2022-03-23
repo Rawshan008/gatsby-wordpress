@@ -65,14 +65,7 @@ export const query = graphql`
         title
       }
       seo {
-        title
-        twitterTitle
-        twitterImage {
-          sourceUrl
-          altText
-          srcSet
-        }
-        metaDesc
+        ...SiteMeta
       }
     }
   }
