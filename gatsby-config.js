@@ -47,6 +47,12 @@ module.exports = {
           process.env.WPGRAPHQL_URL || `https://stuartt45.sg-host.com/graphql`,
       },
     },
+    {
+      resolve: "gatsby-transformer-sharp",
+      options: {
+        checkSupportedExtensions: false,
+      },
+    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
